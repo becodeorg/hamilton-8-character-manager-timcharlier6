@@ -34,4 +34,89 @@ body {
   overflow-x: hidden;
 }
 
-/*# sourceMappingURL=style.css.map */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.createCharacter {
+  height: 50px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 25px;
+  background-color: rgb(185, 225, 225);
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin: 20px auto 40px auto;
+}
+.createCharacter:hover {
+  background-color: rgba(185, 225, 225, 0.5);
+  border: 2px solid rgb(141, 179, 179);
+  transition: background-color 0.2s ease-in-out;
+}
+
+body {
+  background-color: rgb(233, 233, 233);
+}
+body .cardContainer {
+  display: grid;
+  margin: 25px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  grid-gap: 25px;
+}
+@media screen and (max-width: 1200px) {
+  body .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  body .cardContainer {
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+  }
+}
+body .cardContainer .card {
+  border: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 15px;
+  width: 70%;
+  min-height: 90%;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 5px 10px 5px rgb(212, 212, 212);
+  margin: auto;
+}
+body .cardContainer .card button {
+  font-size: 1vw 10px;
+  text-transform: uppercase;
+  padding: 7px 10px;
+  background-color: rgb(185, 225, 225);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin: 10px;
+  font-weight: 700;
+}
+body .cardContainer .card button:hover {
+  background-color: rgba(185, 225, 225, 0.5);
+  border: 1px solid rgb(141, 179, 179);
+  transition: background-color 0.2s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  body .cardContainer .card button {
+    padding: 15px;
+  }
+}
+body .cardContainer .card .imgContainer {
+  width: 80%;
+  margin: 10px auto 0 auto;
+}
+body .cardContainer .card .imgContainer img {
+  width: 100%;
+  border-radius: 15px;
+}/*# sourceMappingURL=style.css.map */
