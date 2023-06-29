@@ -61,7 +61,7 @@ body {
                 background-color: rgb(185, 225, 225);
                 border: 1px solid rgba(0, 0, 0, 0.5);
                 border-radius: 15px;
-                margin: 10px;
+                margin: 25px 10px;
                 font-weight: 700;
                 &:hover {
                     background-color: rgba(185, 225, 225, 0.5);
@@ -75,6 +75,7 @@ body {
         
             .imgContainer {
                 img{
+                    margin-bottom: 25px;
                     width: 100%;
                     border-radius: 15px;
                 }

@@ -99,7 +99,7 @@ body .cardContainer .card button {
   background-color: rgb(185, 225, 225);
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 15px;
-  margin: 10px;
+  margin: 25px 10px;
   font-weight: 700;
 }
 body .cardContainer .card button:hover {
@@ -117,6 +117,49 @@ body .cardContainer .card .imgContainer {
   margin: 10px auto 0 auto;
 }
 body .cardContainer .card .imgContainer img {
+  margin-bottom: 25px;
   width: 100%;
   border-radius: 15px;
+}
+
+body {
+  background-color: rgb(233, 233, 233);
+}
+body .cardInfoCharacter {
+  margin: 5% auto 0 auto;
+  border: 2px solid gray;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  width: 70%;
+  text-align: center;
+  padding: 25px;
+  box-shadow: 5px 10px 5px rgb(212, 212, 212);
+}
+body .imgContainer {
+  margin: 10px auto 0 auto;
+}
+body .imgContainer img {
+  margin-bottom: 25px;
+  width: 100%;
+  border-radius: 15px;
+}
+body button {
+  font-size: 1vw 10px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background-color: rgb(185, 225, 225);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  margin: 25px 10px;
+  font-weight: 700;
+}
+body button:hover {
+  background-color: rgba(185, 225, 225, 0.5);
+  border: 1px solid rgb(141, 179, 179);
+  transition: background-color 0.2s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  body button {
+    padding: 15px;
+  }
 }/*# sourceMappingURL=style.css.map */

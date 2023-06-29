@@ -11,10 +11,13 @@ function createCard(cardData) {
     </div>
     <h1 class="name"> ${cardData["name"]} </h1>
     <p class="shortDecription"> ${cardData["shortDescription"]}</p>
-    <button class ="card__button">See more </button>`
+    <button class ="cardButton">See more </button>`
 
+    const cardButton = card.querySelector(".cardButton");
+    cardButton.addEventListener("click", () => {
+    // Rediriger l'utilisateur vers la page de détails en passant l'ID dans les paramètres de l'URL
+     window.location.href = `character-info.html?id=${cardData["id"]}`;});
     cardContainer.appendChild(card);
-
     return card;
 }
 
@@ -27,8 +30,6 @@ fetch('https://character-database.becode.xyz/characters')
         // Pour chaque élément dans la liste de tous les caractères.
         charList.forEach((character) => {
             //instance of function to create card with api content
-            //const card = createCard(cardData);
-            //cardContainer.appendChild(card);
             createCard(character);
     });    
     })
@@ -38,3 +39,4 @@ fetch('https://character-database.becode.xyz/characters')
 }
 
 displayCardWithData ();
+
