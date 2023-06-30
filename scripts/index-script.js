@@ -1,6 +1,13 @@
 // Select the element with class "cardContainer"
 const cardContainer = document.querySelector(".cardContainer");
 
+const createCharacterButton = document.querySelector(".createCharacter");
+    createCharacterButton.addEventListener("click", () => {
+        // Redirect the user to the details page, passing the ID as a parameter in the URL
+        window.location.href = `character-create.html`;
+    });
+
+
 // Function to create card elements
 function createCard(cardData) {
     // Create a new div element and add the class "card" to it
