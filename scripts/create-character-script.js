@@ -1,31 +1,51 @@
-/*POST /characters
-
-Only takes JSON as input.
-
-Creates a new character.
-
-Returns the newly created character id.*/ 
-
- // Function to create card elements
- function createCharacterContent() {
-    // Select the cardCreateCharacter element
-    const cardCreateCharacter = document.querySelector('.cardCreateCharacter');
-
-    // Set the inner HTML of the card using the cardData properties
-    cardCreateCharacter.innerHTML = `
-        <form>
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="shortDesc">Short description:</label><br>
-            <input type="text" id="shortDesc" name="shortDesc"><br>
-            <textarea for="desc">Description:</textarea><br>
-            <input type="text" id="desc" name="desc"><br>
-            <label for="image">Image:</label><br>
-            <input type="file" id="image" name="image" accept="image/*">
-            <button type="submit">Submit</button>
-        </form>
-    `;
-}
-
-// Call the createCardCreateCharacterContent function to generate the form
-createCharacterContent();
+//Function from internet (don't ask me idk)
+function convertImageToBase64(imgUrl, callback) {
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
+    image.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.height = image.naturalHeight;
+      canvas.width = image.naturalWidth;
+      ctx.drawImage(image, 0, 0);
+      const dataUrl = canvas.toDataURL();
+      callback && callback(dataUrl);
+    };
+    image.src = imgUrl;
+  }
+  
+  // Function to fetch card data and display it
+  function displayCardWithData() {
+    const inputName = document.querySelector("#name").value;
+    const inputShortDesc = document.querySelector("#shortDesc").value;
+    const inputDescription = document.querySelector("#description").value;
+    const inputImage = document.querySelector("#image").value;
+  
+    const init = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: inputName,
+        shortDescription: inputShortDesc,
+        description: inputDescription,
+        image: inputImage,
+      }),
+    };
+  
+    // Fetch data from the API endpoint
+    fetch('https://character-database.becode.xyz/characters', init)
+      .then(response => response.json())
+      .then(charData => {
+        console.log(charData);
+      })
+      .catch(error => {
+        // Log any errors that occur during the fetch operation
+        console.log(error);
+      });
+  }
+  
+  // Call the displayCardWithData function to fetch and display card data
+  displayCardWithData();
+  

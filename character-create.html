@@ -8,7 +8,21 @@
 </head>
 <body>
     <div class="cardCreateCharacter">
-        <!--content made by DOM-->
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="shortDesc">Short description:</label>
+            <input type="text" id="shortDesc" name="shortDesc">
+
+            <label for="description"> Description: </label>
+            <textarea type="text" id="description" name="description"></textarea>
+
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
     <script src="./scripts/create-character-script.js"></script>
 </body>
