@@ -7,7 +7,10 @@
 // import vendors
 
 // import pages
-@import "pages/index";
+@import "./pages/index";
+@import "./pages/characterInfo";
+@import "./pages/characterEditor";
+@import "./pages/characterCreate";
 
 // import layout
 @import "layout/_header", "layout/_footer";
@@ -16,3 +19,5 @@
 @import "component/_button";
 
 // import themes
+// barre de recherche
+@import "layout/search.scss";

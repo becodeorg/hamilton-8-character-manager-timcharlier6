@@ -1,0 +1,41 @@
+.cardEditorCharacter{
+        margin: 5% auto 0 auto;
+        border: 2px solid gray;
+        background-color: rgb(255, 255, 255);
+        border-radius: 15px;
+        width: 70%;
+        padding: 25px;
+        box-shadow: 5px 10px 5px rgb(212, 212, 212);
+      
+        h1 {
+          margin: 25px;
+        }
+      }
+      
+      .editchar-title {
+        text-align: center;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+      
+        label {
+          margin-top: 2%;
+        }
+      }
+      
+      .cardCreateCharacter input,
+      .cardCreateCharacter textarea {
+        border: 1px solid rgba(195, 195, 195, 0.705);
+      }
+      
+      .cardCreateCharacter textarea {
+        min-height: 100px;
+      }
+      
+      #image {
+        min-height: 80px;
+      }
+      
+

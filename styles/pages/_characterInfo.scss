@@ -1,0 +1,57 @@
+body {
+    background-color: rgb(233, 233, 233);
+    .cardInfoCharacter{
+        margin: 5% auto 0 auto;
+        border: 2px solid gray;
+        background-color: rgb(255, 255, 255);
+        border-radius: 15px;
+        width: 70%;
+        text-align: center;
+        padding: 25px;
+        box-shadow: 5px 10px 5px rgb(212, 212, 212);
+}
+.deleteButton{
+    background-color: rgb(239, 164, 154);
+    border: 1px solid rgba(130, 35, 35, 0.5);
+    &:hover {
+        background-color: rgba(255, 189, 189, 0.5);
+        border: 1px solid rgb(200, 155, 148);
+        transition: background-color 0.2s ease-in-out;
+    }
+}
+
+
+.imgContainer {
+    //Trouver solution à cette image de ses morts
+    max-width: 30%;
+    margin: 10px auto 0 auto;
+    img{
+        margin-bottom: 25px;
+        width: 100%;
+        border-radius: 15px;
+    }
+    @media screen and (max-width: 768px) {
+        max-width: 50%;
+      }
+   
+}
+
+button{
+    font-size: 1vw min(10px);
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background-color: rgb(185, 225, 225);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin: 25px 10px;
+    font-weight: 700;
+    &:hover {
+        background-color: rgba(185, 225, 225, 0.5);
+        border: 1px solid rgb(141, 179, 179);
+        transition: background-color 0.2s ease-in-out;
+    }
+    @media screen and (max-width: 768px) {
+        padding: 15px;
+      }
+}
+}

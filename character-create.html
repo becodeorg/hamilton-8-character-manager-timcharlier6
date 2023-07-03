@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character manager - Create</title>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+</head>
+<body>
+    <div class="cardCreateCharacter">
+        <div class="title">
+            <h1>Create a new character</h1>
+        </div>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="shortDesc">Short description:</label>
+            <input type="text" id="shortDesc" name="shortDesc">
+
+            <label for="description"> Description: </label>
+            <textarea type="text" id="description" name="description"></textarea>
+
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="./scripts/create-character-script.js"></script>
+</body>
+</html>
