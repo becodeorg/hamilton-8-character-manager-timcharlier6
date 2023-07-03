@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character manager - Home</title>
+    <script src="https://kit.fontawesome.com/7b1b14c1ce.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <script src="./scripts/index-script.js" defer></script>
+    <!--<script src="./scripts/search.js" defer></script>-->
 </head>
 <body>
+
+    <header>
+        <a href="./character-info.html" class="infos"><i class="fa-solid fa-question" style="color: rgb(185, 225, 225);"></i></a>
+        <form id="search-form">
+            <div class="search-wrapper">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass" style="color: rgb(185, 225, 225);"></i></span>
+                <input type="text" id="search-input" name="q" placeholder="Rechercher..." class="search-bar" />
+            </div>
+        </form>
+    </header>
+
     <button class="createCharacter">Create Character</button>
+
     <div class="cardContainer">
         <!--content made by DOM-->
     </div>
-    <script src="./scripts/index-script.js" defer></script>
+    
 </body>
 </html>
