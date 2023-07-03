@@ -113,19 +113,19 @@ body .cardContainer .card button:hover {
   }
 }
 body .cardContainer .card .imgContainer {
-  width: 80%;
   margin: 10px auto 0 auto;
 }
 body .cardContainer .card .imgContainer img {
   margin-bottom: 25px;
-  width: 100%;
+  align-self: center;
+  width: 110%;
   border-radius: 15px;
 }
 
 body {
   background-color: rgb(233, 233, 233);
 }
-body .cardInfoCharacter, body .cardCreateCharacter, body .cardEditorCharacter {
+body .cardInfoCharacter, body .cardEditorCharacter {
   margin: 5% auto 0 auto;
   border: 2px solid gray;
   background-color: rgb(255, 255, 255);
@@ -177,6 +177,45 @@ body button:hover {
   body button {
     padding: 15px;
   }
+}
+
+.cardCreateCharacter {
+  margin: 5% auto 0 auto;
+  border: 2px solid gray;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  width: 70%;
+  padding: 25px;
+  box-shadow: 5px 10px 5px rgb(212, 212, 212);
+}
+.cardCreateCharacter h1 {
+  margin: 25px;
+}
+
+.createchar-title {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 2%;
+}
+
+.cardCreateCharacter input,
+.cardCreateCharacter textarea {
+  border: 1px solid rgba(195, 195, 195, 0.705);
+}
+
+.cardCreateCharacter textarea {
+  min-height: 100px;
+}
+
+#image {
+  min-height: 80px;
 }
 
 /*# sourceMappingURL=style.css.map */
