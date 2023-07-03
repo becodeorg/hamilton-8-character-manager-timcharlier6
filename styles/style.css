@@ -125,7 +125,7 @@ body .cardContainer .card .imgContainer img {
 body {
   background-color: rgb(233, 233, 233);
 }
-body .cardInfoCharacter, body .cardCreateCharacter, body .cardEditorCharacter {
+body .cardInfoCharacter, body .cardEditorCharacter {
   margin: 5% auto 0 auto;
   border: 2px solid gray;
   background-color: rgb(255, 255, 255);
@@ -177,4 +177,67 @@ body button:hover {
   body button {
     padding: 15px;
   }
+}
+
+.cardCreateCharacter {
+  margin: 5% auto 0 auto;
+  border: 2px solid gray;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  width: 70%;
+  padding: 25px;
+  box-shadow: 5px 10px 5px rgb(212, 212, 212);
+}
+.cardCreateCharacter h1 {
+  margin: 25px;
+}
+
+.createchar-title {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 2%;
+}
+
+.cardCreateCharacter input,
+.cardCreateCharacter textarea {
+  border: 1px solid rgba(195, 195, 195, 0.705);
+}
+
+.cardCreateCharacter textarea {
+  min-height: 100px;
+}
+
+#image {
+  min-height: 80px;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #45a049;
+}
+
+.custom-file-upload input[type=file] {
+  display: none;
+}
+
+.custom-file-upload span {
+  font-size: 16px;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
