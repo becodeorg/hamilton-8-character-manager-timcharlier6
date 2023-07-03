@@ -199,6 +199,11 @@ body {
 .cardCreateCharacter #image {
   padding: 1rem;
 }
+.cardCreateCharacter #description {
+  border: 1px solid black;
+  border-radius: 1rem;
+  height: 4rem;
+}
 .cardCreateCharacter form {
   display: flex;
   flex-direction: column;
@@ -212,7 +217,9 @@ body {
   border-radius: 0.5rem;
   width: 70%;
 }
-.cardCreateCharacter img {
+.cardCreateCharacter .plus {
+  width: 50%;
+  height: 50%;
   filter: brightness(0.5);
 }
 

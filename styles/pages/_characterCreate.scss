@@ -16,6 +16,12 @@ body{
     #image{
         padding: 1rem;
     }
+    #description{
+        border: 1px solid black;
+        border-radius: 1rem;
+        height: 4rem;
+
+    }
     form{
         display: flex;
         flex-direction: column;
@@ -29,12 +35,11 @@ body{
         border: 1px solid black;
         border-radius: 0.5rem;
         width: 70%;
-        
-        
-        
-       
+           
     }
-    img{
+    .plus{
+        width: 50%;
+        height: 50%;
         filter: brightness(0.5);
     }
 }
