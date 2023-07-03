@@ -125,7 +125,7 @@ body .cardContainer .card .imgContainer img {
 body {
   background-color: rgb(233, 233, 233);
 }
-body .cardInfoCharacter, body .cardCreateCharacter, body .cardEditorCharacter {
+body .cardInfoCharacter, body .cardEditorCharacter {
   margin: 5% auto 0 auto;
   border: 2px solid gray;
   background-color: rgb(255, 255, 255);
@@ -177,4 +177,81 @@ body button:hover {
   body button {
     padding: 15px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+body {
+  margin: 5% auto 0 auto;
+  border: 2px solid gray;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  width: 70%;
+  text-align: center;
+  padding: 25px;
+  box-shadow: 5px 10px 5px rgb(212, 212, 212);
+}
+
+.cardCreateCharacter {
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  background-color: rgb(185, 225, 225);
+}
+.cardCreateCharacter #image {
+  padding: 1rem;
+}
+.cardCreateCharacter form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.cardCreateCharacter form label {
+  margin: 1rem;
+}
+.cardCreateCharacter input {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  width: 70%;
+}
+.cardCreateCharacter img {
+  filter: brightness(0.5);
+}
+
+.search-bar {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 2rem;
+  background-color: rgb(185, 225, 225);
+  color: black;
+  padding: 0.5rem;
+  display: inline-block;
+  margin: 1rem;
+}
+
+.search-icon {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .search-bar {
+    display: none;
+  }
+  .search-icon {
+    display: inline-block;
+    margin: 1rem;
+  }
+}
+.fa-question {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 0.5rem;
+  background-color: black;
+  margin: 1rem;
+}
+
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=style.css.map */

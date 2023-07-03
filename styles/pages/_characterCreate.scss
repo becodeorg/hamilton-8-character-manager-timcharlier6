@@ -1,3 +1,40 @@
+body{
+    margin: 5% auto 0 auto;
+    border: 2px solid gray;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 70%;
+    text-align: center;
+    padding: 25px;
+    box-shadow: 5px 10px 5px rgb(212, 212, 212);
+}
 .cardCreateCharacter{
-    @extend .cardInfoCharacter;
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    background-color:  rgb(185, 225, 225);
+    #image{
+        padding: 1rem;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        label{
+            margin: 1rem;
+            
+        }
+    }
+    input{
+        border: 1px solid black;
+        border-radius: 0.5rem;
+        width: 70%;
+        
+        
+        
+       
+    }
+    img{
+        filter: brightness(0.5);
+    }
 }
