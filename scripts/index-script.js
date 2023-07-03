@@ -90,3 +90,15 @@ searchInput.addEventListener('keydown', (event) => {
         searchCharacter(event);
     }
 });
+
+const searchIcon = document.querySelector('.search-icon');
+const searchForm = document.getElementById('search-form');
+
+
+
+searchIcon.addEventListener('click', (event) => {
+    event.preventDefault();
+    searchIcon.style.display = 'none';
+    searchInput.style.display = 'inline-block';
+    searchInput.focus();
+});

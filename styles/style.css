@@ -217,13 +217,13 @@ body {
 }
 
 .search-bar {
+  display: inline-block;
   width: 100%;
   border: 1px solid black;
   border-radius: 2rem;
   background-color: rgb(185, 225, 225);
   color: black;
   padding: 0.5rem;
-  display: inline-block;
   margin: 1rem;
 }
 
@@ -231,13 +231,13 @@ body {
   display: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   .search-bar {
     display: none;
   }
   .search-icon {
     display: inline-block;
-    margin: 1rem;
+    cursor: pointer;
   }
 }
 .fa-question {
