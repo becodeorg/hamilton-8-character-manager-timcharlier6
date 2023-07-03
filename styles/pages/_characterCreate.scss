@@ -6,34 +6,35 @@
     width: 70%;
     padding: 25px;
     box-shadow: 5px 10px 5px rgb(212, 212, 212);
+  
     h1 {
-        margin: 25px;
+      margin: 25px;
     }
-}
-
-.createchar-title{
+  }
+  
+  .createchar-title {
     text-align: center;
-}
-
-form{
+  }
+  
+  form {
     display: flex;
     flex-direction: column;
-}
-
-label {
-    margin-top: 2%;
-}
-
-.cardCreateCharacter input,
-.cardCreateCharacter textarea {
+  
+    label {
+      margin-top: 2%;
+    }
+  }
+  
+  .cardCreateCharacter input,
+  .cardCreateCharacter textarea {
     border: 1px solid rgba(195, 195, 195, 0.705);
-}
-
-.cardCreateCharacter textarea {
+  }
+  
+  .cardCreateCharacter textarea {
     min-height: 100px;
-}
-
-#image{
+  }
+  
+  #image {
     min-height: 80px;
-}
-
+  }
+  
