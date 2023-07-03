@@ -185,14 +185,18 @@ body button:hover {
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
   width: 70%;
-  padding: 25px;
+  padding: 1rem;
   box-shadow: 5px 10px 5px rgb(212, 212, 212);
+}
+.cardEditorCharacter #search-input {
+  margin: 0;
+  width: 70%;
 }
 .cardEditorCharacter h1 {
   margin: 25px;
 }
 
-.editchar-title {
+.title {
   text-align: center;
 }
 
@@ -254,5 +258,3 @@ header {
   flex-direction: row-reverse;
   justify-content: space-between;
 }
-
-/*# sourceMappingURL=style.css.map */

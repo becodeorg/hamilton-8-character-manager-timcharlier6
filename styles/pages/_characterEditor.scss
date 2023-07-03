@@ -4,15 +4,19 @@
         background-color: rgb(255, 255, 255);
         border-radius: 15px;
         width: 70%;
-        padding: 25px;
+        padding: 1rem;
         box-shadow: 5px 10px 5px rgb(212, 212, 212);
       
+        #search-input{
+          margin: 0;
+          width: 70%;
+        }
         h1 {
           margin: 25px;
         }
       }
       
-      .editchar-title {
+      .title {
         text-align: center;
       }
       
