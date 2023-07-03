@@ -113,12 +113,12 @@ body .cardContainer .card button:hover {
   }
 }
 body .cardContainer .card .imgContainer {
-  width: 80%;
   margin: 10px auto 0 auto;
 }
 body .cardContainer .card .imgContainer img {
   margin-bottom: 25px;
-  width: 100%;
+  align-self: center;
+  width: 110%;
   border-radius: 15px;
 }
 
