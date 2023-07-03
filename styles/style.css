@@ -113,19 +113,19 @@ body .cardContainer .card button:hover {
   }
 }
 body .cardContainer .card .imgContainer {
-  width: 80%;
   margin: 10px auto 0 auto;
 }
 body .cardContainer .card .imgContainer img {
   margin-bottom: 25px;
-  width: 100%;
+  align-self: center;
+  width: 110%;
   border-radius: 15px;
 }
 
 body {
   background-color: rgb(233, 233, 233);
 }
-body .cardInfoCharacter, body .cardEditorCharacter {
+body .cardInfoCharacter, body .cardCreateCharacter {
   margin: 5% auto 0 auto;
   border: 2px solid gray;
   background-color: rgb(255, 255, 255);
@@ -179,48 +179,42 @@ body button:hover {
   }
 }
 
-body {
+.cardEditorCharacter {
   margin: 5% auto 0 auto;
   border: 2px solid gray;
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
   width: 70%;
-  text-align: center;
   padding: 25px;
   box-shadow: 5px 10px 5px rgb(212, 212, 212);
 }
+.cardEditorCharacter h1 {
+  margin: 25px;
+}
 
-.cardCreateCharacter {
-  display: flex;
-  justify-content: space-around;
-  height: 100vh;
-  background-color: rgb(185, 225, 225);
+.editchar-title {
+  text-align: center;
 }
-.cardCreateCharacter #image {
-  padding: 1rem;
-}
-.cardCreateCharacter #description {
-  border: 1px solid black;
-  border-radius: 1rem;
-  height: 4rem;
-}
-.cardCreateCharacter form {
+
+form {
   display: flex;
   flex-direction: column;
-  align-items: baseline;
 }
-.cardCreateCharacter form label {
-  margin: 1rem;
+form label {
+  margin-top: 2%;
 }
-.cardCreateCharacter input {
-  border: 1px solid black;
-  border-radius: 0.5rem;
-  width: 70%;
+
+.cardCreateCharacter input,
+.cardCreateCharacter textarea {
+  border: 1px solid rgba(195, 195, 195, 0.705);
 }
-.cardCreateCharacter .plus {
-  width: 50%;
-  height: 50%;
-  filter: brightness(0.5);
+
+.cardCreateCharacter textarea {
+  min-height: 100px;
+}
+
+#image {
+  min-height: 80px;
 }
 
 .search-bar {
