@@ -25,10 +25,11 @@ body {
 
     .cardContainer {
         display: grid;
-        margin: 25px;
+        margin: 1.5rem;
         grid-template-columns: repeat(4, 1fr);
-        justify-content: space-between;
-        grid-gap: 25px; 
+        
+        justify-items: center;
+       gap: 1rem;
     
         // Responsive styles
         @media screen and (max-width: 1200px) {
@@ -45,21 +46,21 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background-color: white;
-            border-radius: 15px;
+            background-color: azure;
+            border-radius: 1rem;
             width: 70%;
             min-height: 90%;
             text-align: center;
             padding: 10px;
             box-shadow: 5px 10px 5px rgb(212, 212, 212);
-            margin: auto;
+            
         
             button{
                 font-size: 1vw min(10px);
                 text-transform: uppercase;
                 padding: 7px 10px;
-                background-color: rgb(185, 225, 225);
-                border: 1px solid rgba(0, 0, 0, 0.5);
+                background-color: rgb(185, 280, 280);
+                border: 2px solid rgb(125, 300, 300);
                 border-radius: 15px;
                 margin: 25px 10px;
                 font-weight: 700;
@@ -74,16 +75,24 @@ body {
             }
         
             .imgContainer {
+                margin: 10px auto 0 auto;
                 img{
                     margin-bottom: 25px;
                     align-self: center;
-                    width: 110%;
+                    width: 100%;
                     border-radius: 15px;
                 }
-                margin: 10px auto 0 auto;
             }
         }
       }
+
+      h1.name{
+        font-size: 20px;
+    }
+    p.shortDecription{
+        font-size: 14px;
+        font-style: italic;
+    }
 }
 
 

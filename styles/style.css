@@ -62,10 +62,10 @@ body {
 }
 body .cardContainer {
   display: grid;
-  margin: 25px;
+  margin: 1.5rem;
   grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
-  grid-gap: 25px;
+  justify-items: center;
+  gap: 1rem;
 }
 @media screen and (max-width: 1200px) {
   body .cardContainer {
@@ -83,21 +83,20 @@ body .cardContainer .card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: white;
-  border-radius: 15px;
+  background-color: azure;
+  border-radius: 1rem;
   width: 70%;
   min-height: 90%;
   text-align: center;
   padding: 10px;
   box-shadow: 5px 10px 5px rgb(212, 212, 212);
-  margin: auto;
 }
 body .cardContainer .card button {
   font-size: 1vw 10px;
   text-transform: uppercase;
   padding: 7px 10px;
-  background-color: rgb(185, 225, 225);
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: rgb(185, 255, 255);
+  border: 2px solid rgb(125, 255, 255);
   border-radius: 15px;
   margin: 25px 10px;
   font-weight: 700;
@@ -118,14 +117,21 @@ body .cardContainer .card .imgContainer {
 body .cardContainer .card .imgContainer img {
   margin-bottom: 25px;
   align-self: center;
-  width: 110%;
+  width: 100%;
   border-radius: 15px;
+}
+body h1.name {
+  font-size: 20px;
+}
+body p.shortDecription {
+  font-size: 14px;
+  font-style: italic;
 }
 
 body {
   background-color: rgb(233, 233, 233);
 }
-body .cardInfoCharacter {
+body .cardInfoCharacter, body .cardCreateCharacter {
   margin: 5% auto 0 auto;
   border: 2px solid gray;
   background-color: rgb(255, 255, 255);
@@ -185,14 +191,18 @@ body button:hover {
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
   width: 70%;
-  padding: 25px;
+  padding: 1rem;
   box-shadow: 5px 10px 5px rgb(212, 212, 212);
+}
+.cardEditorCharacter #search-input {
+  margin: 0;
+  width: 70%;
 }
 .cardEditorCharacter h1 {
   margin: 25px;
 }
 
-.editchar-title {
+.title {
   text-align: center;
 }
 
@@ -253,4 +263,28 @@ form label {
 
 #image {
   min-height: 80px;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #45a049;
+}
+
+.custom-file-upload input[type=file] {
+  display: none;
+}
+
+.custom-file-upload span {
+  font-size: 16px;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

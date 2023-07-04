@@ -1,5 +1,6 @@
-function createCard(cardData) {
-  const cardInfoCharacter = document.querySelector(".cardInfoCharacter");
+// Get the character ID from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const characterId = urlParams.get("id");
 
   // Set the HTML content of cardInfoCharacter
   cardInfoCharacter.innerHTML = 
@@ -8,7 +9,7 @@ function createCard(cardData) {
       <img src="data:image/png;base64, ${cardData['image']}"> 
   </div>
   <h1 class="name"> ${cardData["name"]} </h1>
-  <p class="description"> </p>
+  <p class="description"> ${cardData["description"]}</p>
   <button class="editButton">Edit</button>
   <button class="deleteButton">Delete</button>
   `;
@@ -16,57 +17,31 @@ function createCard(cardData) {
   document.querySelector('.description').innerHTML =
       marked.parse(cardData.description);
 
-  const editButton = cardInfoCharacter.querySelector(".editButton");
-  // Add click event listener to editButton
-  editButton.addEventListener("click", () => {
-      // Redirect the user to the details page by passing the ID in the URL parameters
-      window.location.href = `character-editor.html?id=${cardData["id"]}`;
-  });
-
-  // Add click event listener to deleteButton for deleting the character
-  const deleteButton = cardInfoCharacter.querySelector('.deleteButton');
-  deleteButton.addEventListener('click', () => {
-      // Display an alert to confirm the deletion
-      const confirmation = confirm('Are you sure you want to delete?');
-      if (confirmation) {
-          // Add code to delete the character
-          fetch(`https://character-database.becode.xyz/characters/${cardData["id"]}`, {
-              method: 'DELETE',
-          })
-          .then(response => {
-              if (response.ok) {
-                  // Display success message
-                  alert("You killed him :'(");
-
-                  // Redirect to index.html
-                  window.location.href = "index.html";
-              } else {
-                  // Handle the error case
-                  alert("Failed to delete character.");
-              }
-          })
-          .catch(error => {
-              // Handle any network or other errors
-              console.error("Error deleting character:', error");
-              alert('An error occurred while deleting the character.');
-          });
-      }
-  });
-
-  // Append cardInfoCharacter to cardContainer
-  cardContainer.appendChild(cardInfoCharacter);
-  return cardInfoCharacter;
+// Function to fetch character data by ID from the API
+function fetchCharacterData(characterId) {
+  fetch("https://character-database.becode.xyz/characters/" + characterId)
+    .then(response => response.json())
+    .then(characterData => {
+      // Call a function to display the character information on the page
+      displayCharacterInfo(characterData);
+    })
+    .catch(error => {
+      // Log any errors that occur during the fetch operation
+      console.log(error);
+    });
 }
 
-// Get the 'id' parameter from the URL
-const urlId = (new URLSearchParams(window.location.search)).get('id');
+// Function to display character information on the page
+function displayCharacterInfo(characterData) {
+  const characterNameElement = document.getElementById("characterName");
+  const characterTitleElement = document.getElementById("characterTitle");
+  const characterDescriptionElement = document.getElementById("characterDescription");
+  const characterImageElement = document.getElementById("characterImage");
 
-// Fetch the character data based on the URL ID
-fetch('https://character-database.becode.xyz/characters/' + urlId)
-.then(response => response.json())
-.then(cardData => createCard(cardData))
-.catch(error => {
-  console.log(error);
-});
-
+  // Set the character information in the HTML elements
+  characterNameElement.textContent = characterData.name;
+  characterTitleElement.textContent = characterData.shortDescription;
+  characterDescriptionElement.textContent = characterData.description;
+  characterImageElement.src = "https://character-database.becode.xyz/images/" + characterData.image;
+}
 

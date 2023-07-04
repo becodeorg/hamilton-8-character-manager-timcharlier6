@@ -5,28 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character manager - Editor</title>
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <script src="./scripts/character-edit-script.js" defer></script>
 </head>
 <body>
     
     <div class="cardEditorCharacter">
-        <div class="editchar-title">
-            <h1 class="title">Card Editor</h1>
-        </div>
+        <h1 class="title">Card Editor</h1>
+        <form id="search-form">
+            <div class="search-wrapper">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass" style="color: rgb(185, 225, 225);"></i></span>
+                <input type="text" id="search-input" name="q" placeholder="Rechercher..." class="search-bar" />
+                <button type="submit" id="search-button">OK</button>
+            </div>
+        </form>
 
-        <form action="" method="post" class="form-example">
-        <label for="image">Upload a new image</label>
-
-        <input type="file" class="inputImage" value="" id="image">
-        <label for="name">Enter a new name</label>
-
-        <input type="text" class="inputName" value="" id="name">
-        <label for="description">Enter a new description</label>
-
-        <input type="text" class="inputDescription" value="" id="description">
-        <button type="submit">Submit</button>
-
+        <form id="edit-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+            <label for="image">Image URL:</label>
+            <input type="text" id="image" name="image">
+            <button type="submit">Save</button>
         </form>
     </div>
-    <script src="./scripts/character-edit-script.js"></script>
+    
 </body>
 </html>
