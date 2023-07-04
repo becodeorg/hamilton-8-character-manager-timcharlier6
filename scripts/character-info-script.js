@@ -2,20 +2,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const characterId = urlParams.get("id");
 
-  // Set the HTML content of cardInfoCharacter
-  cardInfoCharacter.innerHTML = 
-  `
-  <div class="imgContainer">
-      <img src="data:image/png;base64, ${cardData['image']}"> 
-  </div>
-  <h1 class="name"> ${cardData["name"]} </h1>
-  <p class="description"> ${cardData["description"]}</p>
-  <button class="editButton">Edit</button>
-  <button class="deleteButton">Delete</button>
-  `;
-
-  document.querySelector('.description').innerHTML =
-      marked.parse(cardData.description);
+// Call the function to fetch and display character data
+fetchCharacterData(characterId);
 
 // Function to fetch character data by ID from the API
 function fetchCharacterData(characterId) {
