@@ -5,12 +5,12 @@ const characterId = urlParams.get("id");
 // Call the function to fetch and display character data
 fetchCharacterData(characterId);
 
-// Function to fetch character data by ID from the API
+// Function to fetch character data and image by ID from the API
 function fetchCharacterData(characterId) {
   fetch("https://character-database.becode.xyz/characters/" + characterId)
     .then(response => response.json())
     .then(characterData => {
-      // Call a function to display the character information on the page
+      // Call a function to display the character information and image on the page
       displayCharacterInfo(characterData);
     })
     .catch(error => {
@@ -19,7 +19,7 @@ function fetchCharacterData(characterId) {
     });
 }
 
-// Function to display character information on the page
+// Function to display character information and image on the page
 function displayCharacterInfo(characterData) {
   const characterNameElement = document.getElementById("characterName");
   const characterTitleElement = document.getElementById("characterTitle");
@@ -31,11 +31,8 @@ function displayCharacterInfo(characterData) {
   characterTitleElement.textContent = characterData.shortDescription;
   characterDescriptionElement.textContent = characterData.description;
 
-  // Convert the image data to base64 using btoa()
-  const imageData = btoa(characterData.image);
-
   // Set the character image source
-  characterImageElement.src = "data:image/png;base64," + imageData;
+  characterImageElement.src = "data:image/jpeg;base64," + characterData.image;
   characterImageElement.alt = "Character Image";
 }
 
