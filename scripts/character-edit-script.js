@@ -1,118 +1,150 @@
-/*const cardEditorCharacter = document.querySelector('.cardEditorCharacter');
-let formulaire = document.querySelector('form');
-
 class Character {
-    constructor (id) {
-      this.id = id;
-      this.name = "";
-      this.description = "";
-      this.image = "";
-    }
-  
-    getName () {
-      return this.name;
-    }
-  
-    setName (characterName){
-      this.name = characterName;
-    }
-  
-    getDescription () {
-      return this.description;
-    }
-  
-    setDescription (characterDescription) {
-      this.description = characterDescription;
-    }
-  
-    getImage () {
-      return this.image;
-    }
-  
-    setImage (characterImage) {
-      this.image = characterImage;
-    }
+  constructor(id) {
+    this.id = id;
+    this.name = "";
+    this.title = "";
+    this.description = "";
+    this.image = "";
   }
-  
-  // Get the 'id' parameter from the URL
-const urlId = (new URLSearchParams(window.location.search)).get('id');
-  
-  // Fetch the character data based on the URL ID
-fetch('https://character-database.becode.xyz/characters/' + urlId)
-    .then(response => response.json())
-    .then(cardData => { 
-      const myCharacter = new Character(cardData.id);
-   
-      const inputImage = formulaire.querySelector('.inputImage'); 
-      const inputName = formulaire.querySelector('.inputName'); 
-      const inputDescription = formulaire.querySelector('.inputDescription'); 
 
-      inputName.setAttribute("placeholder", cardData.name);
-      inputDescription.setAttribute("placeholder", cardData.description);
-  
-      const imageValue = inputImage.value; 
-      const nameValue = inputName.value; 
-      const descriptionValue = inputDescription.value; 
-  
-      myCharacter.setName(nameValue);
-      myCharacter.setDescription(descriptionValue);
-      myCharacter.setImage(imageValue);
-  
-      const requestBody = {
-        name: myCharacter.getName(),
-        description: myCharacter.getDescription(),
-        image: myCharacter.getImage()
-      };
-    });
+  // Rest of the Character class code
 
-fetch('https:/character-database.becode.xyz/characters', {
-    method : 'post',
-    headers: {
-        'content-type': 'application/json'
-    },
-    body : JSON.stringify(requestBody)
-    })
-    .then(res => {
-    alert("Request complete! response:" + res);
-    })
-    .catch(error => {
-    console.log(error);
-    });
-*/
-/*
-function search(event) {
-  event.preventDefault();
-  var query = document.getElementById('search-input').value;
-  fetch('https://character-database.becode.xyz/characters?q=' + query)
-      .then(response => response.json())
-      .then(data => {
-          if (data.length > 0) {
-              var character = data[0];
-              // Charger les informations du personnage dans les champs de saisie
-              document.getElementById('name').value = character.name;
-              document.getElementById('title').value = character.title;
-              document.getElementById('description').value = character.description;
-              // Charger l'image du personnage
-              document.getElementById('image-preview').src = character.image;
-          } else {
-              console.error('Aucun personnage trouvé.');
-          }
-      })
-      .catch(error => {
-          console.error('Une erreur s\'est produite:', error);
-      });
 }
 
-document.getElementById('search-form').addEventListener('submit', search);
-*/
-function search(event) {
+const editForm = document.getElementById('edit-form');
+const searchForm = document.getElementById('search-form');
+const urlId = new URLSearchParams(window.location.search).get('id') || '';
+let myCharacter;
+
+if (urlId !== '') {
+  fetch('https://character-database.becode.xyz/characters/' + urlId)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch character data');
+      }
+      return response.json();
+    })
+    .then(cardData => {
+      myCharacter = new Character(cardData.id);
+      myCharacter.name = cardData.name;
+      myCharacter.title = cardData.title;
+      myCharacter.description = cardData.description;
+      myCharacter.image = cardData.image;
+
+      // Rest of the code...
+
+    })
+    .catch(error => {
+      console.error('Une erreur s\'est produite lors de la récupération des données du personnage:', error);
+    });
+}
+
+
+if (urlId !== '') {
+  fetch('https://character-database.becode.xyz/characters/' + urlId)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch character data');
+      }
+      return response.json();
+    })
+    .then(cardData => {
+      myCharacter = new Character(cardData.id);
+      myCharacter.setName(cardData.name);
+      myCharacter.setTitle(cardData.title);
+      myCharacter.setDescription(cardData.description);
+      myCharacter.setImage(cardData.image);
+
+      const inputName = editForm.querySelector('#name');
+      const inputTitle = editForm.querySelector('#title');
+      const inputDescription = editForm.querySelector('#description');
+      const inputImage = editForm.querySelector('#image');
+
+      inputName.setAttribute('placeholder', myCharacter.name);
+      inputTitle.setAttribute('placeholder', myCharacter.title);
+      inputDescription.setAttribute('placeholder', myCharacter.description);
+
+      inputName.value = myCharacter.name;
+      inputTitle.value = myCharacter.title;
+      inputDescription.value = myCharacter.description;
+      inputImage.value = myCharacter.image;
+    })
+    .catch(error => {
+      console.error('Une erreur s\'est produite lors de la récupération des données du personnage:', error);
+    });
+}
+function saveCharacter(event) {
   event.preventDefault();
-  var query = document.getElementById('search-input').value.toLowerCase(); // Convertir en minuscules
+
+  const newName = document.getElementById('name').value;
+  const newTitle = document.getElementById('title').value;
+  const newDescription = document.getElementById('description').value;
+  const newImage = document.getElementById('image').value;
+
+  if (myCharacter) {
+    if (
+      newName !== myCharacter.name ||
+      newTitle !== myCharacter.title ||
+      newDescription !== myCharacter.description ||
+      newImage !== myCharacter.image
+    ) {
+      myCharacter.name = newName;
+      myCharacter.title = newTitle;
+      myCharacter.description = newDescription;
+      myCharacter.image = newImage;
+
+      const characterData = {
+        name: myCharacter.name,
+        title: myCharacter.title,
+        description: myCharacter.description,
+        image: myCharacter.image,
+      };
+
+      fetch('https://character-database.becode.xyz/characters/' + myCharacter.id, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(characterData),
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to update character data');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Modifications enregistrées avec succès:', data);
+        })
+        .catch(error => {
+          console.error('Une erreur s\'est produite lors de l\'enregistrement des modifications:', error);
+        });
+    } else {
+      console.log('Aucune modification n\'a été apportée.');
+    }
+  } else {
+    console.error('Le personnage n\'est pas initialisé.');
+  }
+}
+
+
+
+editForm.addEventListener('submit', saveCharacter);
+
+function searchCharacter(event) {
+  event.preventDefault();
+  const query = document.getElementById('search-input').value.toLowerCase();
+
   fetch('https://character-database.becode.xyz/characters?q=' + query)
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch character data');
+      }
+      return response.json();
+    })
     .then(data => {
       if (data.length > 0) {
-        var character = data[0];
+        const character = data[0];
         document.getElementById('name').value = character.name;
         document.getElementById('title').value = character.title;
         document.getElementById('description').value = character.description;
@@ -126,54 +158,4 @@ function search(event) {
     });
 }
 
-document.getElementById('search-form').addEventListener('submit', search);
-
-document.getElementById('edit-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  var name = document.getElementById('name').value;
-  var title = document.getElementById('title').value;
-  var description = document.getElementById('description').value;
-  var image = document.getElementById('image').value;
-
-  // Effectuer les modifications nécessaires sur le personnage
-  
-  // Afficher un message de confirmation ou effectuer une action supplémentaire
-});
-
-
-// Récupération de l'élément de la barre de recherche
-const searchInput = document.getElementById('search-input');
-function search(event) {
-    event.preventDefault();
-    const searchTerm = searchInput.value.toLowerCase(); // Convertit le terme de recherche en minuscules
-
-    fetch('https://character-database.becode.xyz/characters')
-        .then(response => response.json())
-        .then(charList => {
-            const matchingCharacters = charList.filter(character => {
-                const characterName = character.name.toLowerCase(); // Convertit le nom du personnage en minuscules
-                return characterName.includes(searchTerm); // Vérifie si le terme de recherche se trouve dans le nom du personnage
-            });
-
-            if (matchingCharacters.length > 0) {
-                const characterId = matchingCharacters[0].id;
-                const url = `character-info.html?id=${characterId}`;
-                window.open(url, '_blank');
-            } else {
-                console.log("Aucun personnage trouvé.");
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-}
-
-// Écoutez l'événement "submit" du formulaire pour appeler la fonction searchCharacter
-searchInput.parentNode.addEventListener('submit', searchCharacter);
-
-searchInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        searchCharacter(event);
-    }
-});
-
+searchForm.addEventListener('submit', searchCharacter);
