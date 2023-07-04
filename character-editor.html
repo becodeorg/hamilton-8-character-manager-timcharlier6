@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character manager - Editor</title>
+    <title>Character manager - Edit </title>
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
 </head>
 <body>
+    <body>
+        <div class="cardCreateCharacter">
+            <div class="title">
+                <h1>Modify a character</h1>
+            </div>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
     
-    <div class="cardEditorCharacter">
-        <div class="editchar-title">
-            <h1 class="title">Card Editor</h1>
+                <label for="shortDesc">Short description:</label>
+                <input type="text" id="shortDesc" name="shortDesc">
+    
+                <label for="description"> Description: </label>
+                <textarea type="text" id="description" name="description"></textarea>
+    
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+    
+                <button type="submit">Submit</button>
+            </form>
         </div>
-
-        <form action="" method="post" class="form-example">
-        <label for="image">Upload a new image</label>
-
-        <input type="file" class="inputImage" value="" id="image">
-        <label for="name">Enter a new name</label>
-
-        <input type="text" class="inputName" value="" id="name">
-        <label for="description">Enter a new description</label>
-
-        <input type="text" class="inputDescription" value="" id="description">
-        <button type="submit">Submit</button>
-
-        </form>
-    </div>
     <script src="./scripts/character-edit-script.js"></script>
+    
 </body>
 </html>
