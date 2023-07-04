@@ -176,3 +176,4 @@ searchInput.addEventListener('keydown', (event) => {
         searchCharacter(event);
     }
 });
+
