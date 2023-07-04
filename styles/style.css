@@ -180,6 +180,7 @@ body .cardInfoCharacter .post {
 body .cardInfoCharacter .png {
   display: flex;
   justify-content: center;
+  margin: 2rem;
 }
 body .editButton {
   background-color: rgb(239, 164, 154);
