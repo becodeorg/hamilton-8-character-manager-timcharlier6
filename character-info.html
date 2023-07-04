@@ -5,15 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Manager - Character Info</title>
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <script src="./scripts/character-info-script.js" defer></script>
 </head>
 <body>
-    <div class="cardInfoCharacter">
-        <h1 id="characterName"></h1>
-        <h2 id="characterTitle"></h2>
-        <p id="characterDescription"></p>
-        <img id="characterImage" src="" alt="Character Image">
+    <div class="container">
+        <div class="cardInfoCharacter">
+            <div class="identity">
+                <h1 id="characterName"></h1>
+                <h2 id="characterTitle"></h2>
+            </div>
+            <div class="post">
+                <p id="characterDescription"></p>
+            </div>
+            <div class="png">
+                <img id="characterImage" src="" alt="Character Image">
+            </div>    
+        </div>
+        <button class="deleteButton">Delete</button>
+        <button class="editButton">Edit</button>
     </div>
-
-    <script src="./scripts/character-info-script.js"></script>
+   
 </body>
 </html>
