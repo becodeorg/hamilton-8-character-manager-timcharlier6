@@ -253,28 +253,4 @@ form label {
 
 #image {
   min-height: 80px;
-}
-
-.custom-file-upload {
-  display: inline-block;
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: #fff;
-  border-radius: 4px;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.custom-file-upload:hover {
-  background-color: #45a049;
-}
-
-.custom-file-upload input[type=file] {
-  display: none;
-}
-
-.custom-file-upload span {
-  font-size: 16px;
-  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

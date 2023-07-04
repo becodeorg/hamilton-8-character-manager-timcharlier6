@@ -8,10 +8,13 @@ function createCard(cardData) {
       <img src="data:image/png;base64, ${cardData['image']}"> 
   </div>
   <h1 class="name"> ${cardData["name"]} </h1>
-  <p class="description"> ${cardData["description"]}</p>
+  <p class="description"> </p>
   <button class="editButton">Edit</button>
   <button class="deleteButton">Delete</button>
   `;
+
+  document.querySelector('.description').innerHTML =
+      marked.parse(cardData.description);
 
   const editButton = cardInfoCharacter.querySelector(".editButton");
   // Add click event listener to editButton
