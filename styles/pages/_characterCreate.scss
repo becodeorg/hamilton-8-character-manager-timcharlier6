@@ -1,3 +1,40 @@
-.cardCreateCharacter{
-    @extend .cardInfoCharacter;
+body{
+    display: flex;
+    justify-content: center;
+}
+.cardCreate{
+    background-color: rgb(125, 300, 300);
+    
+    width: 80%;
+    border: 2px solid rgb( 205, 150, 150);
+    border-radius: 1rem;
+    margin: 2rem;
+
+    .cardCreateCharacter{
+        display: flex;
+        flex-direction: column;
+
+        #description{
+            margin: 2rem;
+            border: 2px solid rgb( 205, 150, 150);
+            border-radius: 1rem;
+        }
+        h1{
+            color:rgb( 205, 150, 150);
+
+        }
+    }
+
+    label{
+        margin: 2rem;
+        color: rgb( 205, 150, 150);
+    }
+
+    input{
+        border: 2px solid rgb( 205, 150, 150);
+        margin: 2rem;
+        border-radius: 1rem;
+        min-height: 4rem;
+    }
+
 }

@@ -1,14 +1,49 @@
 body {
+    display: flex;
+    align-items: center;
+
     background-color: rgb(233, 233, 233);
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
     .cardInfoCharacter{
         margin: 5% auto 0 auto;
         border: 2px solid gray;
-        background-color: rgb(255, 255, 255);
+        background-color: black;
         border-radius: 15px;
         width: 70%;
         text-align: center;
         padding: 25px;
         box-shadow: 5px 10px 5px rgb(212, 212, 212);
+
+
+        .identity{
+            font-size: 24px;
+            color: darkgoldenrod;
+            background-color: black;
+        }
+        .post{
+            background-color: darkgoldenrod;
+            color: black;
+            min-height: 5rem;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+        .png{
+                display: flex; 
+                justify-content: center;            
+        }
+}
+.editButton{
+    background-color: rgb(239, 164, 154);
+    border: 1px solid rgba(130, 35, 35, 0.5);
+    &:hover {
+        background-color: rgba(255, 189, 189, 0.5);
+        border: 1px solid rgb(200, 155, 148);
+        transition: background-color 0.2s ease-in-out;
+    }
 }
 .deleteButton{
     background-color: rgb(239, 164, 154);
@@ -26,9 +61,9 @@ body {
     max-width: 30%;
     margin: 10px auto 0 auto;
     img{
-        margin-bottom: 25px;
+        margin-bottom: 1.5rem;
         width: 100%;
-        border-radius: 15px;
+        border-radius: 1rem;
     }
     @media screen and (max-width: 768px) {
         max-width: 50%;

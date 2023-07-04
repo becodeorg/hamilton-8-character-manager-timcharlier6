@@ -22,6 +22,8 @@
 
 body {
     background-color: rgb(233, 233, 233);
+    display: flex;
+    flex-direction: column;
 
     .cardContainer {
         display: grid;
@@ -81,6 +83,22 @@ body {
                     align-self: center;
                     width: 100%;
                     border-radius: 15px;
+                    &:active {
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 300px;
+                        height: auto;
+                        background-color: rgba(0, 0, 0, 0.8);
+                        border-radius: 15px;
+                        z-index: 999;
+                        color: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 18px;
+                      }
                 }
             }
         }
