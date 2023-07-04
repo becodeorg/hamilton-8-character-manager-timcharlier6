@@ -8,7 +8,6 @@ class Character {
   }
 
   // Rest of the Character class code
-
 }
 
 const editForm = document.getElementById('edit-form');
@@ -31,34 +30,13 @@ if (urlId !== '') {
       myCharacter.description = cardData.description;
       myCharacter.image = cardData.image;
 
-      // Rest of the code...
-
-    })
-    .catch(error => {
-      console.error('Une erreur s\'est produite lors de la récupération des données du personnage:', error);
-    });
-}
-
-
-if (urlId !== '') {
-  fetch('https://character-database.becode.xyz/characters/' + urlId)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch character data');
-      }
-      return response.json();
-    })
-    .then(cardData => {
-      myCharacter = new Character(cardData.id);
-      myCharacter.setName(cardData.name);
-      myCharacter.setTitle(cardData.title);
-      myCharacter.setDescription(cardData.description);
-      myCharacter.setImage(cardData.image);
-
       const inputName = editForm.querySelector('#name');
       const inputTitle = editForm.querySelector('#title');
       const inputDescription = editForm.querySelector('#description');
       const inputImage = editForm.querySelector('#image');
+      const imagePreview = document.getElementById('image-preview');
+      const imgElement = document.createElement('img');
+      imagePreview.appendChild(imgElement);
 
       inputName.setAttribute('placeholder', myCharacter.name);
       inputTitle.setAttribute('placeholder', myCharacter.title);
@@ -68,6 +46,10 @@ if (urlId !== '') {
       inputTitle.value = myCharacter.title;
       inputDescription.value = myCharacter.description;
       inputImage.value = myCharacter.image;
+
+      imgElement.src = myCharacter.image;
+
+      editForm.setAttribute('action', 'https://character-database.becode.xyz/characters/' + myCharacter.id);
     })
     .catch(error => {
       console.error('Une erreur s\'est produite lors de la récupération des données du personnage:', error);
