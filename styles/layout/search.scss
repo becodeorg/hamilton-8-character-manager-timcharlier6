@@ -13,8 +13,16 @@
   display: none;
 }
 
-@media (max-width: 700px) {
+
+
   
+  .fa-question{
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background-color: black;
+    margin: 1rem;
+  }
 
   header{
     width: 90%;
@@ -22,4 +30,3 @@
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-}
