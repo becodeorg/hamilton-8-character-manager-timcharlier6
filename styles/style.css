@@ -1,3 +1,4 @@
+@import url("https://kit.fontawesome.com/7b1b14c1ce.js");
 *, *::before, **::after {
   margin: 0;
   padding: 0;
@@ -34,116 +35,118 @@ body {
   overflow-x: hidden;
 }
 
-* {
-  font-family: Arial, Helvetica, sans-serif;
+.index-page {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-.createCharacter {
-  height: 50px;
-  display: block;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 5px 25px;
-  background-color: rgb(185, 225, 225);
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  margin: 20px auto 40px auto;
-}
-.createCharacter:hover {
-  background-color: rgba(185, 225, 225, 0.5);
-  border: 2px solid rgb(141, 179, 179);
-  transition: background-color 0.2s ease-in-out;
-}
-
-body {
-  background-color: rgb(233, 233, 233);
+.index {
   display: flex;
   flex-direction: column;
-}
-body .cardContainer {
-  display: grid;
-  margin: 1.5rem;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
-  gap: 1rem;
-}
-@media screen and (max-width: 1200px) {
-  body .cardContainer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media screen and (max-width: 768px) {
-  body .cardContainer {
-    grid-template-columns: 1fr;
-    margin-top: 10px;
-  }
-}
-body .cardContainer .card {
-  border: 2px solid gray;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: azure;
-  border-radius: 1rem;
-  width: 70%;
-  min-height: 90%;
-  text-align: center;
-  padding: 10px;
-  box-shadow: 5px 10px 5px rgb(212, 212, 212);
-}
-body .cardContainer .card button {
-  font-size: 1vw 10px;
-  text-transform: uppercase;
-  padding: 7px 10px;
-  background-color: rgb(185, 255, 255);
-  border: 2px solid rgb(125, 255, 255);
-  border-radius: 15px;
-  margin: 25px 10px;
-  font-weight: 700;
-}
-body .cardContainer .card button:hover {
-  background-color: rgba(185, 225, 225, 0.5);
-  border: 1px solid rgb(141, 179, 179);
-  transition: background-color 0.2s ease-in-out;
-}
-@media screen and (max-width: 768px) {
-  body .cardContainer .card button {
-    padding: 15px;
-  }
-}
-body .cardContainer .card .imgContainer {
-  margin: 10px auto 0 auto;
-}
-body .cardContainer .card .imgContainer img {
-  margin-bottom: 25px;
-  align-self: center;
-  width: 100%;
-  border-radius: 15px;
-}
-body .cardContainer .card .imgContainer img:active {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 15px;
-  z-index: 999;
-  color: #fff;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 18px;
 }
-body h1.name {
-  font-size: 20px;
+.index header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(185, 225, 225);
 }
-body p.shortDecription {
-  font-size: 14px;
-  font-style: italic;
+.index header .infos {
+  color: rgb(185, 225, 225);
+}
+.index header .infos i {
+  color: rgb(185, 225, 225);
+}
+.index header form {
+  display: flex;
+  align-items: center;
+}
+.index header form .search-bar {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+.index header form .search-icon {
+  margin-left: 10px;
+}
+.index .createCharacter {
+  width: 60%;
+  margin: 20px auto;
+  display: block;
+  padding: 10px;
+  border-radius: 2rem;
+  background-color: #00b894;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.index .cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  justify-items: center;
+  gap: 2rem;
+  margin: 0 2rem;
+  border: 1px solid blue;
+  padding: 20px;
+}
+.index .card {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: filter 0.3s ease;
+}
+.index .card .imgContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+.index .card .imgContainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  filter: blur(0);
+  transition: filter 0.3s ease;
+}
+.index .card:hover .imgContainer img {
+  filter: blur(4px);
+}
+.index .card:hover .divCache {
+  opacity: 1;
+}
+.index .divCache {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.index .divCache h1,
+.index .divCache p {
+  margin: 10px;
+}
+.index .divCache button {
+  border-radius: 2rem;
+  border: 2px solid #00b894;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #00b894;
+  cursor: pointer;
 }
 
 body {

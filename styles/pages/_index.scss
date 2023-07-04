@@ -1,117 +1,141 @@
- *{
-    font-family: Arial, Helvetica, sans-serif;
-    margin : 0;
-    padding: 0;
-}
-.createCharacter{
-    height: 50px;
-    display: block;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 5px 25px;
-    background-color: rgb(185, 225, 225);
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    margin: 20px auto 40px auto;
-    &:hover {
-        background-color: rgba(185, 225, 225, 0.5);
-        border: 2px solid rgb(141, 179, 179);
-        transition: background-color 0.2s ease-in-out;
-    }
+
+@import url('https://kit.fontawesome.com/7b1b14c1ce.js');
+
+$primary-color: rgb(185, 225, 225);
+$accent-color: #00b894;
+$card-width: 20%;
+$container-width: 60%;
+
+.index-page {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-    background-color: rgb(233, 233, 233);
+.index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: $primary-color;
 
-    .cardContainer {
-        display: grid;
-        margin: 1.5rem;
-        grid-template-columns: repeat(4, 1fr);
-        
-        justify-items: center;
-       gap: 1rem;
-    
-        // Responsive styles
-        @media screen and (max-width: 1200px) {
-          grid-template-columns: repeat(2, 1fr);
-        }
-    
-        @media screen and (max-width: 768px) {
-          grid-template-columns: 1fr;
-          margin-top: 10px;
-        }
+    .infos {
+      color: $primary-color;
+      i {
+        color: $primary-color;
+      }
+    }
 
-        .card{
-            border: 2px solid gray;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background-color: azure;
-            border-radius: 1rem;
-            width: 70%;
-            min-height: 90%;
-            text-align: center;
-            padding: 10px;
-            box-shadow: 5px 10px 5px rgb(212, 212, 212);
-            
-        
-            button{
-                font-size: 1vw min(10px);
-                text-transform: uppercase;
-                padding: 7px 10px;
-                background-color: rgb(185, 280, 280);
-                border: 2px solid rgb(125, 300, 300);
-                border-radius: 15px;
-                margin: 25px 10px;
-                font-weight: 700;
-                &:hover {
-                    background-color: rgba(185, 225, 225, 0.5);
-                    border: 1px solid rgb(141, 179, 179);
-                    transition: background-color 0.2s ease-in-out;
-                }
-                @media screen and (max-width: 768px) {
-                    padding: 15px;
-                  }
-            }
-        
-            .imgContainer {
-                margin: 10px auto 0 auto;
-                img{
-                    margin-bottom: 25px;
-                    align-self: center;
-                    width: 100%;
-                    border-radius: 15px;
-                    &:active {
-                        position: fixed;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 300px;
-                        height: auto;
-                        background-color: rgba(0, 0, 0, 0.8);
-                        border-radius: 15px;
-                        z-index: 999;
-                        color: #fff;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        font-size: 18px;
-                      }
-                }
-            }
-        }
+    form {
+      display: flex;
+      align-items: center;
+      .search-bar {
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
       }
 
-      h1.name{
-        font-size: 20px;
+      .search-icon {
+        margin-left: 10px;
+      }
     }
-    p.shortDecription{
-        font-size: 14px;
-        font-style: italic;
+  }
+
+  .createCharacter {
+    width: $container-width;
+    margin: 20px auto;
+    display: block;
+    padding: 10px;
+    border-radius: 2rem;
+    background-color: $accent-color;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .cardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($card-width, 1fr));
+    justify-items: center;
+    gap: 2rem;
+    margin: 0 2rem;
+    border: 1px solid blue;
+    padding: 20px;
+  }
+
+  .container {
+    
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: filter 0.3s ease;
+
+    .imgContainer {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 100%;
+      background-color: #f5f5f5;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        object-fit: cover;
+        filter: blur(0);
+        transition: filter 0.3s ease;
+      }
     }
+
+    &:hover {
+      .imgContainer img {
+        filter: blur(4px);
+      }
+
+      .divCache {
+        opacity: 1;
+      }
+    }
+  }
+
+  .divCache {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    h1,
+    p {
+      margin: 10px;
+    }
+
+    button {
+      border-radius: 2rem;
+      border: 2px solid $accent-color;
+      padding: 8px 16px;
+      background-color: transparent;
+      color: $accent-color;
+      cursor: pointer;
+    }
+  }
 }
-
-
-

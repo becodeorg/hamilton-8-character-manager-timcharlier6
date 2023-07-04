@@ -18,9 +18,11 @@ function createCard(cardData) {
     `<div class="imgContainer">
         <img src="data:image/png;base64, ${cardData['image']}"> 
     </div>
+    <div class="divCache>
     <h1 class="name"> ${cardData["name"]} </h1>
     <p class="shortDecription"> ${cardData["shortDescription"]}</p>
-    <button class ="cardButton">See more </button>`;
+    <button class ="cardButton">See more </button>
+    <div>`;
 
     // Find the button element with class "cardButton" within the card and add a click event listener
     const cardButton = card.querySelector(".cardButton");
