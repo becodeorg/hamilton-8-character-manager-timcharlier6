@@ -16,44 +16,56 @@ const urlId = new URLSearchParams(window.location.search).get('id') || '';
 let myCharacter;
 
 if (urlId !== '') {
-  fetch('https://character-database.becode.xyz/characters/' + urlId)
+  fetchCharacterData(urlId);
+}
+
+function fetchCharacterData(characterId) {
+  fetch('https://character-database.becode.xyz/characters/' + characterId)
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to fetch character data');
       }
       return response.json();
     })
-    .then(cardData => {
-      myCharacter = new Character(cardData.id);
-      myCharacter.name = cardData.name;
-      myCharacter.title = cardData.title;
-      myCharacter.description = cardData.description;
-      myCharacter.image = cardData.image;
+    .then(characterData => {
+      myCharacter = new Character(characterData.id);
+      myCharacter.name = characterData.name;
+      myCharacter.title = characterData.title;
+      myCharacter.description = characterData.description;
+      myCharacter.image = characterData.image;
 
-      const inputName = editForm.querySelector('#name');
-      const inputTitle = editForm.querySelector('#title');
-      const inputDescription = editForm.querySelector('#description');
-      const inputImage = editForm.querySelector('#image');
-      const imagePreview = document.getElementById('image-preview');
-      const imgElement = document.createElement('img');
-      imagePreview.appendChild(imgElement);
+      myCharacter.iamge.src = "data:image/jpeg;base64," + characterData.image;
+      myCharacter.image.alt = "Character Image";
 
-      inputName.setAttribute('placeholder', myCharacter.name);
-      inputTitle.setAttribute('placeholder', myCharacter.title);
-      inputDescription.setAttribute('placeholder', myCharacter.description);
-
-      inputName.value = myCharacter.name;
-      inputTitle.value = myCharacter.title;
-      inputDescription.value = myCharacter.description;
-      inputImage.value = myCharacter.image;
-
-      imgElement.src = myCharacter.image;
-
-      editForm.setAttribute('action', 'https://character-database.becode.xyz/characters/' + myCharacter.id);
+      displayCharacterInfo(myCharacter);
     })
     .catch(error => {
       console.error('Une erreur s\'est produite lors de la récupération des données du personnage:', error);
     });
+}
+
+function displayCharacterInfo(character) {
+  const inputName = editForm.querySelector('#name');
+  const inputTitle = editForm.querySelector('#title');
+  const inputDescription = editForm.querySelector('#description');
+  const inputImage = editForm.querySelector('#image');
+  const imagePreview = document.getElementById('image-preview');
+  const imgElement = document.createElement('img');
+  imagePreview.appendChild(imgElement);
+
+  inputName.setAttribute('placeholder', character.name);
+  inputTitle.setAttribute('placeholder', character.title);
+  inputDescription.setAttribute('placeholder', character.description);
+
+  inputName.value = character.name;
+  inputTitle.value = character.title;
+  inputDescription.value = character.description;
+  inputImage.value = character.image;
+
+  imgElement.src = "data:image/jpeg;base64," + character.image;
+  imgElement.alt = "Character Image";
+
+  editForm.setAttribute('action', 'https://character-database.becode.xyz/characters/' + character.id);
 }
 function saveCharacter(event) {
   event.preventDefault();

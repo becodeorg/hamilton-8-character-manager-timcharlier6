@@ -11,23 +11,24 @@
     <div class="cardEditorCharacter">
         <h1 class="title">Card Editor</h1>
         <form id="search-form">
-            <div class="search-wrapper">
-                <span class="search-icon"><i class="fa-solid fa-magnifying-glass" style="color: rgb(185, 225, 225);"></i></span>
-                <input type="text" id="search-input" name="q" placeholder="Rechercher..." class="search-bar" />
-                <button type="submit" id="search-button">OK</button>
-            </div>
+          <div class="search-wrapper">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass" style="color: rgb(185, 225, 225);"></i></span>
+            <input type="text" id="search-input" name="q" placeholder="Rechercher..." class="search-bar" />
+            <button type="submit" id="search-button">OK</button>
+          </div>
         </form>
         <form id="edit-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title">
-            <label for="description">Description:</label>
-            <textarea id="description" name="description"></textarea>
-            <label for="image">Image URL:</label>
-            <input type="text" id="image" name="image">
-            <button type="submit">Save</button>
-          </form>
-    </div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description"></textarea>
+          <label for="image">Image:</label>
+          <div id="image-preview"></div>
+          <input type="text" id="image-url" name="image-url">
+          <button type="submit">Save</button>
+        </form>
+      </div>
 </body>
 </html>
