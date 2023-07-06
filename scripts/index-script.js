@@ -18,7 +18,7 @@ function createCard(cardData) {
     `<div class="imgContainer">
         <img src="data:image/png;base64, ${cardData['image']}"> 
     </div>
-    <div class="divCache>
+    <div class="divCache">
     <h1 class="name"> ${cardData["name"]} </h1>
     <p class="shortDecription"> ${cardData["shortDescription"]}</p>
     <button class ="cardButton">See more </button>

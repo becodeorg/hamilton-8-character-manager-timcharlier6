@@ -35,7 +35,7 @@ body {
   overflow-x: hidden;
 }
 
-.index-page {
+body.index-page {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -83,6 +83,7 @@ body {
   cursor: pointer;
 }
 .index .cardContainer {
+  width: 80%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
   justify-items: center;
@@ -111,17 +112,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   filter: blur(0);
   transition: filter 0.3s ease;
 }
-.index .card:hover .imgContainer img {
-  filter: blur(4px);
-}
-.index .card:hover .divCache {
-  opacity: 1;
-}
-.index .divCache {
+.index .card .divCache {
   position: absolute;
   top: 0;
   left: 0;
@@ -136,11 +133,12 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.index .divCache h1,
-.index .divCache p {
+.index .card .divCache h1,
+.index .card .divCache p {
   margin: 10px;
+  display: none; /* Ajout de cette ligne */
 }
-.index .divCache button {
+.index .card .divCache button {
   border-radius: 2rem;
   border: 2px solid #00b894;
   padding: 8px 16px;
@@ -148,17 +146,27 @@ body {
   color: #00b894;
   cursor: pointer;
 }
+.index .card:hover .imgContainer img {
+  filter: blur(4px);
+}
+.index .card:hover .divCache {
+  opacity: 1;
+}
+.index .card:hover .divCache h1,
+.index .card:hover .divCache p {
+  display: block; /* Ajout de cette ligne */
+}
 
-body {
+body.cardInfoCharacter {
   display: flex;
-  align-items: center;
+  justify-content: center;
   background-color: rgb(233, 233, 233);
 }
-body .container {
+body.cardInfoCharacter .container {
   display: flex;
   flex-direction: column;
 }
-body .cardInfoCharacter {
+body.cardInfoCharacter .cardInfoCharacter {
   margin: 5% auto 0 auto;
   border: 2px solid gray;
   background-color: black;
@@ -168,56 +176,56 @@ body .cardInfoCharacter {
   padding: 25px;
   box-shadow: 5px 10px 5px rgb(212, 212, 212);
 }
-body .cardInfoCharacter .identity {
+body.cardInfoCharacter .cardInfoCharacter .identity {
   font-size: 24px;
   color: darkgoldenrod;
   background-color: black;
 }
-body .cardInfoCharacter .post {
+body.cardInfoCharacter .cardInfoCharacter .post {
   background-color: darkgoldenrod;
   color: black;
   min-height: 5rem;
   padding: 2rem;
   border-radius: 1rem;
 }
-body .cardInfoCharacter .png {
+body.cardInfoCharacter .cardInfoCharacter .png {
   display: flex;
   justify-content: center;
   margin: 2rem;
 }
-body .editButton {
+body.cardInfoCharacter .editButton {
   background-color: rgb(239, 164, 154);
   border: 1px solid rgba(130, 35, 35, 0.5);
 }
-body .editButton:hover {
+body.cardInfoCharacter .editButton:hover {
   background-color: rgba(255, 189, 189, 0.5);
   border: 1px solid rgb(200, 155, 148);
   transition: background-color 0.2s ease-in-out;
 }
-body .deleteButton {
+body.cardInfoCharacter .deleteButton {
   background-color: rgb(239, 164, 154);
   border: 1px solid rgba(130, 35, 35, 0.5);
 }
-body .deleteButton:hover {
+body.cardInfoCharacter .deleteButton:hover {
   background-color: rgba(255, 189, 189, 0.5);
   border: 1px solid rgb(200, 155, 148);
   transition: background-color 0.2s ease-in-out;
 }
-body .imgContainer {
+body.cardInfoCharacter .imgContainer {
   max-width: 30%;
   margin: 10px auto 0 auto;
 }
-body .imgContainer img {
+body.cardInfoCharacter .imgContainer img {
   margin-bottom: 1.5rem;
   width: 100%;
   border-radius: 1rem;
 }
 @media screen and (max-width: 768px) {
-  body .imgContainer {
+  body.cardInfoCharacter .imgContainer {
     max-width: 50%;
   }
 }
-body button {
+body.cardInfoCharacter button {
   font-size: 1vw 10px;
   text-transform: uppercase;
   padding: 10px 20px;
@@ -227,13 +235,13 @@ body button {
   margin: 25px 10px;
   font-weight: 700;
 }
-body button:hover {
+body.cardInfoCharacter button:hover {
   background-color: rgba(185, 225, 225, 0.5);
   border: 1px solid rgb(141, 179, 179);
   transition: background-color 0.2s ease-in-out;
 }
 @media screen and (max-width: 768px) {
-  body button {
+  body.cardInfoCharacter button {
     padding: 15px;
   }
 }
@@ -280,7 +288,7 @@ form label {
   min-height: 80px;
 }
 
-body {
+body.create {
   display: flex;
   justify-content: center;
 }

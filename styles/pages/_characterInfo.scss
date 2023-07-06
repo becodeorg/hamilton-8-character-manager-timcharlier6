@@ -1,6 +1,6 @@
-body {
+body.cardInfoCharacter {
     display: flex;
-    align-items: center;
+    justify-content: center;
 
     background-color: rgb(233, 233, 233);
 
@@ -59,7 +59,7 @@ body {
 
 
 .imgContainer {
-    //Trouver solution à cette image de ses morts
+   
     max-width: 30%;
     margin: 10px auto 0 auto;
     img{
