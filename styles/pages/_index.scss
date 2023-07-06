@@ -66,6 +66,14 @@ body.index-page {
     margin: 0 2rem;
     border: 1px solid blue;
     padding: 20px;
+
+    @media screen and (max-width: 768px) { // Taille pour tablette
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 480px) { // Taille pour smartphone
+      grid-template-columns: 1fr;
+    }
   }
 
   .card {

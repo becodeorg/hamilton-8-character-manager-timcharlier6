@@ -1,7 +1,7 @@
 // Select the element with class "cardContainer"
-const cardContainer = document.querySelector(".cardContainer");
+var cardContainer = document.querySelector(".cardContainer");
 
-const createCharacterButton = document.querySelector(".createCharacter");
+var createCharacterButton = document.querySelector(".createCharacter");
 createCharacterButton.addEventListener("click", () => {
     // Redirect the user to the details page, passing the ID as a parameter in the URL
     window.location.href = `character-create.html`;
@@ -25,7 +25,7 @@ function createCard(cardData) {
     <div>`;
 
     // Find the button element with class "cardButton" within the card and add a click event listener
-    const cardButton = card.querySelector(".cardButton");
+    var cardButton = card.querySelector(".cardButton");
     cardButton.addEventListener("click", () => {
         // Redirect the user to the details page, passing the ID as a parameter in the URL
         window.location.href = `character-info.html?id=${cardData["id"]}`;
@@ -58,22 +58,22 @@ function displayCardWithData() {
 displayCardWithData();
 
 // Récupération de l'élément de la barre de recherche
-const searchInput = document.getElementById('search-input');
+var searchInput = document.getElementById('search-input');
 function searchCharacter(event) {
     event.preventDefault();
-    const searchTerm = searchInput.value.toLowerCase(); // Convertit le terme de recherche en minuscules
+    var searchTerm = searchInput.value.toLowerCase(); // Convertit le terme de recherche en minuscules
 
     fetch('https://character-database.becode.xyz/characters')
         .then(response => response.json())
         .then(charList => {
-            const matchingCharacters = charList.filter(character => {
-                const characterName = character.name.toLowerCase(); // Convertit le nom du personnage en minuscules
+            var matchingCharacters = charList.filter(character => {
+                var characterName = character.name.toLowerCase(); // Convertit le nom du personnage en minuscules
                 return characterName.includes(searchTerm); // Vérifie si le terme de recherche se trouve dans le nom du personnage
             });
 
             if (matchingCharacters.length > 0) {
-                const characterId = matchingCharacters[0].id;
-                const url = `character-info.html?id=${characterId}`;
+                var characterId = matchingCharacters[0].id;
+                var url = `character-info.html?id=${characterId}`;
                 window.open(url, '_blank');
             } else {
                 console.log("Aucun personnage trouvé.");

@@ -10,9 +10,9 @@ class Character {
   // Rest of the Character class code
 }
 
-var editForm = document.getElementById('edit-form');
-var searchForm = document.getElementById('search-form');
-var urlId = new URLSearchParams(window.location.search).get('id') || '';
+const editForm = document.getElementById('edit-form');
+const searchForm = document.getElementById('search-form');
+const urlId = new URLSearchParams(window.location.search).get('id') || '';
 
 if (urlId !== '') {
   fetchCharacterData(urlId);
@@ -27,7 +27,7 @@ function fetchCharacterData(characterId) {
       return response.json();
     })
     .then(function(characterData) {
-      var myCharacter = new Character(characterData.id);
+      const myCharacter = new Character(characterData.id);
       myCharacter.name = characterData.name;
       myCharacter.title = characterData.title;
       myCharacter.description = characterData.description;
@@ -44,11 +44,11 @@ function fetchCharacterData(characterId) {
 }
 
 function displayCharacterInfo(character) {
-  var inputName = editForm.querySelector('#name');
-  var inputTitle = editForm.querySelector('#title');
-  var inputDescription = editForm.querySelector('#description');
-  var inputImage = editForm.querySelector('#image');
-  var imagePreview = document.getElementById('image-preview');
+  const inputName = editForm.querySelector('#name');
+  const inputTitle = editForm.querySelector('#title');
+  const inputDescription = editForm.querySelector('#description');
+  const inputImage = editForm.querySelector('#image');
+  const imagePreview = document.getElementById('image-preview');
   
   inputName.setAttribute('placeholder', character.name);
   inputTitle.setAttribute('placeholder', character.title);
@@ -70,10 +70,10 @@ function displayCharacterInfo(character) {
 function saveCharacter(event) {
   event.preventDefault();
 
-  var newName = document.getElementById('name').value;
-  var newTitle = document.getElementById('title').value;
-  var newDescription = document.getElementById('description').value;
-  var newImage = document.getElementById('image').value;
+  const newName = document.getElementById('name').value;
+  const newTitle = document.getElementById('title').value;
+  const newDescription = document.getElementById('description').value;
+  const newImage = document.getElementById('image').value;
 
   if (myCharacter) {
     if (

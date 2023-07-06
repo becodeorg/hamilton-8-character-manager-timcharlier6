@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/becodeorg/hamilton-8-character-manager-timcharlier6/issues"
   },
-  "homepage": "https://github.com/becodeorg/hamilton-8-character-manager-timcharlier6#readme"
+  "homepage": "https://github.com/becodeorg/hamilton-8-character-manager-timcharlier6#readme",
+  "dependencies": {
+    "vite": "^4.4.0"
+  }
 }

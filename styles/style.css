@@ -92,6 +92,16 @@ body.index-page {
   border: 1px solid blue;
   padding: 20px;
 }
+@media screen and (max-width: 768px) {
+  .index .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 480px) {
+  .index .cardContainer {
+    grid-template-columns: 1fr;
+  }
+}
 .index .card {
   position: relative;
   width: 100%;
